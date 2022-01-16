@@ -17,3 +17,12 @@ function deretAngka(n) {
     } return hasilDeretAngka
 }
 console.log(deretAngka(10))
+
+
+
+
+
+
+
+
+
