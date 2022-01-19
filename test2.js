@@ -1,10 +1,10 @@
-function sum(num){
-    if (num === 0) {
-        return 0;
-    } else {
-        return num + sum(--num)
-    }
-}
-console.log(sum(4))
+function weirdMultiply(number) {
 
-sum(4);
+    let str = number.toString() 
+    let total = 1
+
+        for (i = 0; i < str.length; i++) {
+            total *= str[i]
+        }
+    }
+    
