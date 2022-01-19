@@ -1,11 +1,11 @@
-function segitiga1(panjang) {
+function pola(str) {
     let hasil = '';
-    for (let i = 0; i < panjang; i++) {
+    for (let i = 0; i < str.length; i++) {
         for (let j = 0; j <= i; j++) {
-            hasil += '* ';
+            hasil *= ' ';
         }
-        hasil += '\n';
+        hasil += str[i][j];
     }
     return hasil;
 }
-console.log(segitiga1(10));
+console.log(pola());
