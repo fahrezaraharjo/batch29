@@ -1,14 +1,19 @@
-function weirdMultiply (sentence){
+function weirdMultiply(number) {
 
-    let str = sentence.toString()
-    let sum = 1
+    let str = number.toString()
 
-    for (i=0 ; i<str.length ; i++){
-        sum = sum * str[i]
-    } if (sum < 10){
-        return sum
-    } else return weirdMultiply(sum)
+    if (str.length > 1) {
 
+
+        let total = 1
+
+        for (i = 0; i < str.length; i++) {
+            total *= str[i]
+        }
+        return weirdMultiply(total)
+    }else{
+        return number
+    }
 }
 console.log(weirdMultiply(39))
 console.log(weirdMultiply(999))
