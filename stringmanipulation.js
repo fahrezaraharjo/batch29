@@ -1,13 +1,28 @@
+// function stringManipulation(word) {
+
+//     let newword = "aiueoAIUEO"
+
+//     if (newword.match(word[0])) {
+//         console.log(word)
+
+//     } else (console.log(word.slice(1, word.length) + (word.charAt(0)) + 'nyo'))
+// }
+
+
+// stringManipulation('ayam')
+// stringManipulation('bebek')
+// stringManipulation('ular')
+// stringManipulation('badak')
+
+
 function stringManipulation(word) {
 
-    let newword = "aiueoAIUEO"
+    let newword = "AIUEOaiueo"
 
-    if (newword.match(word[0])) {
+    if(newword.match(word[0])) {
         console.log(word)
-
-    } else (console.log(word.slice(1, word.length) + (word.charAt(0)) + 'nyo'))
+    }else console.log(word.slice(1, word.length) + (word.charAt(0)) + 'nyo')
 }
-
 
 stringManipulation('ayam')
 stringManipulation('bebek')
