@@ -1,13 +1,37 @@
-const fs =require('fs')
+function sentencesManipulation(sentence) {
 
-console.log('pertama')
+    const vowel = ('AIUEOaiueo')
+    let newarray = sentence.split(' ')
+    let changeinto = []
 
-let data = fs.readFile('data.txt', 'utf8', function(err,text){
-    console.log(err)
-    console.log(text)
+    for (var i = 0; i < newarray.length; i++) {
+        if (vowel.match((newarray[i][0]))) {
+            changeinto.push(newarray[i])
+        } else changeinto.push(newarray[i].slice(1, newarray[i].length)
+            + newarray[i][0] + 'nyo')
 
-})
 
-console.log(data)
+    } return changeinto.join(' ')
+}
+sentencesManipulation('ibu pergi ke pasar bersama aku')
 
-console.log('terakhir')
+
+
+
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    prompt: 'tulis kalimatmu disini > '
+});
+
+rl.prompt();
+
+rl.on('line', (line) => {
+    console.log("hasil konversi: " + sentencesManipulation(line));
+
+    rl.prompt();
+}).on('close', () => {
+    console.log('Good bye!');
+    process.exit(0);
+});
