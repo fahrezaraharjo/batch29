@@ -4,16 +4,16 @@ import fs from "fs"
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
-    prompt: "tebakan :"
+    prompt: "jawaban :"
 });
 
-console.log('Selamat datang di permainan tebak kata, silahkan isi dengan jawaban yang benar ya! ')
+console.log(`Selamat datang di permainan tebak kata, silahkan isi dengan jawaban yang benar ya!\n\n`)
 
 
 var soal = JSON.parse(fs.readFileSync('data.json', 'utf-8'))
 let index = 0
 let counter = 0
-console.log(soal[index].definition)
+console.log(`Pertanyaan :${soal[index].definition}\n`)
 
 rl.prompt();
 
@@ -24,19 +24,19 @@ rl.on('line', (answer) => {
         index++
         console.log(soal[index].definition)
     } else if (answer == soal[index].term) {
-        console.log('selamat anda benar!')
+        console.log('Selamat Anda Benar!\n\n')
         index++
         counter = 0
         if (index < soal.length) {
-            console.log(soal[index].definition)
+            console.log(`Pertanyaan : ${soal[index].definition}\n`)
         } else {
-            console.log('Hore Anda Menang!');
+            console.log('Anda Berhasil!');
             rl.close()
         }
 
     } else {
         counter++
-        console.log(`"Wkwkwkwk, anda kurang beruntung! anda telah salah ${counter} kali`)
+        console.log(`Anda kurang beruntung! anda telah salah ${counter} Kali, silahkan coba lagi\n`)
     }
 
 
