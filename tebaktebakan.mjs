@@ -1,3 +1,8 @@
+if(!process.argv[2]) {
+    console.log("tolong sertakan inputan nama filenya")
+}
+
+
 import readline from 'readline'
 import fs from "fs"
 
@@ -7,13 +12,16 @@ const rl = readline.createInterface({
     prompt: "jawaban :"
 });
 
-console.log(`Selamat datang di permainan tebak kata, silahkan isi dengan jawaban yang benar ya!\n\n`)
 
 
-var soal = JSON.parse(fs.readFileSync('data.json', 'utf-8'))
+console.log(`selamat datang di permainan tebak-tebakan. kamu akan diberikan pertanyaan dari file ini 'data.json`)
+console.log(`untuk bermain, jawablah dengan jawaban yang sesuai`)
+console.log(`gunakan "skip" untuk menangguhkan pertanyaan,dan di akhir pertanyaan akan di tanyakan lagi\n\n`)
+
+var soal = JSON.parse(fs.readFileSync(process.argv[2], 'utf-8'))
 let index = 0
 let counter = 0
-console.log(`Pertanyaan :${soal[index].definition}\n`)
+console.log(`Pertanyaan :${soal[index].definition}`)
 
 rl.prompt();
 
@@ -24,11 +32,11 @@ rl.on('line', (answer) => {
         index++
         console.log(soal[index].definition)
     } else if (answer == soal[index].term) {
-        console.log('Selamat Anda Benar!\n\n')
+        console.log('Selamat Anda Benar!\n')
         index++
         counter = 0
         if (index < soal.length) {
-            console.log(`Pertanyaan : ${soal[index].definition}\n`)
+            console.log(`Pertanyaan : ${soal[index].definition}`)
         } else {
             console.log('Anda Berhasil!');
             rl.close()
