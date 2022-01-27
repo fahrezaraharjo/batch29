@@ -1,3 +1,5 @@
+//nasted loop
+
 function pola(str) {
 
     let split = str.split(' ')
@@ -17,7 +19,6 @@ function pola(str) {
     }
 
 }
-
 
 console.log(pola('8#61 * 895 = 78410#5'))
 console.log(pola('42#3 * 188 = 80#204'))
