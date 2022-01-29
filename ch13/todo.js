@@ -1,3 +1,4 @@
+let index = 0
 
 let param = process.argv
 
@@ -16,9 +17,10 @@ switch (param[2]) {
 
 
         break;
+        //menambahkan secara otomatis di terminal
     case "add":
 
-        let title = param.slice(3).join(" ")
+        let title = param.slice(3).join(" ")// dipotong setelah param 3
 
         const todo = {
             title: title,
@@ -30,8 +32,10 @@ switch (param[2]) {
         fs.writeFileSync('data3.json', JSON.stringify(data, null, 3), 'utf-8')
         break;
 
-    case "delete":
-
+        case "delete":
+            
+        //ketika menjalankan dengan perintah di terminal node todo.js delet 1 maka salah satu item pada data json akan di hapus
+        
         let deleted = param[3] - 1
 
         data.splice(deleted, 1)
@@ -51,7 +55,8 @@ switch (param[2]) {
 
         case "list:outstanding": 
 console.log("pekerjaan yang belum selesai :")
-        if (param[3] == 'asc') {
+        
+if (param[3] == 'asc') {
             for(let i = 0; i < data.length; i++)
             if(!data[i])console.log(data[i])
             console.log(`${i+1}. [${data[i].complete ? 'x' : " "}] ${data[i].title}`)
@@ -61,9 +66,26 @@ console.log("pekerjaan yang belum selesai :")
             console.log(`${i+1}. [${data[i].complete ? 'x' : " "}] ${data[i].title}`)
         }
 
+
+        fs.writeFileSync('data3.json', JSON.stringify(data, null, 3), 'utf-8')
 break;
 
-
+case 'list:completed':
+    if (param[3] == 'asc') {
+        data.forEach((item, index) => {
+            if (data[index].status == true) {
+                console.log(`${index + 1}. ${item.status ? '[x]' : '[ ]'} ${item.tugas}`)
+            }
+        })
+    } else for (let i = data.length - 1; i >= 0; i--) {
+        if (data[i].status == true) {
+            
+            console.log(`${i + 1}. ${data[i].status ? '[x]' : '[ ]'} ${data[i].tugas}`)
+        }
+    }
+    fs.writeFileSync('data3.json', JSON.stringify(data, null, 3), 'utf-8')
+    
+    break;
 
     
     default:
