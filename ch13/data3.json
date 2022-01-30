@@ -5,13 +5,8 @@
       "tag": []
    },
    {
-      "title": "saya akan makan",
-      "complete": true,
-      "tag": []
-   },
-   {
       "title": "saya akan apa",
-      "complete": false,
+      "complete": true,
       "tag": []
    },
    {
