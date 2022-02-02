@@ -6,12 +6,12 @@
    },
    {
       "title": "saya akan apa",
-      "complete": true,
+      "complete": false,
       "tag": []
    },
    {
       "title": "saya ingin berjemur",
-      "complete": false,
+      "complete": true,
       "tag": []
    }
 ]
