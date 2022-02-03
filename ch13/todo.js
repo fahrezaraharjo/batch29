@@ -91,32 +91,47 @@ switch (param[2]) {
         }
         break;
 
-    // case 'tag':
-    //     let tags = param.slice(4, param.length)
-    //     // console.log(tags)
-    //     tags.forEach((item, index) => {
-    //         data[id].tag.push(tags[index])
-    //     });
-    //     // console.log(data[id])
-    //     // data[id].tag.push(tags)
-    //     console.log(`'${tags}' telah ditambahkan ke daftar '${data[id].title}'`)
+    case 'tag':
+        let tags = param.slice(4, param.length)
+        // console.log(tags)
+        tags.forEach((item, index) => {
+            data[id].tag.push(tags[index])
+        });
+        // console.log(data[id])
+        // data[id].tag.push(tags)
+        console.log(`'${tags}' telah ditambahkan ke daftar '${data[id].title}'`)
 
-        
-    //     fs.writeFileSync('data3.json', JSON.stringify(data, null, 3), 'utf-8')
-    //     break;
 
-    default:
+        fs.writeFileSync('data3.json', JSON.stringify(data, null, 3), 'utf-8')
+        break;
 
-    console.log(">>> JS data <<<")
-    console.log("$ node data.js <command>")
-    console.log("$ node todo.js list")
-    console.log("$ node todo.js task <task_id>")
-    console.log("$ node todo.js add <task_content>")
-    console.log("$ node todo.js delete <task_id>")
-    console.log("$ node todo.js complete <task_id>")
-    console.log("$ node todo.js uncomplete<task_id>")
-    console.log("$ node todo.js list:outstanding asc|dsc")
-    console.log("$ node todo.js list:complited asc|dsc")
-    console.log("$ node todo.js tag <task_id> <tag_name_1> <tag_name_2>...<tag_name_N>")
-    console.log("$ node todo.js filter:<tag_name>")
-}
+        default:
+
+            if (!param[2] || param[2] == 'help') {
+                console.log('>>>JS TODO<<<')
+                console.log('$ node todo.mjs <command>')
+                console.log('$ node todo.mjs list')
+                console.log('$ node todo.mjs task <task_id>')
+                console.log('$ node todo.mjs add <task content>')
+                console.log('$ node todo.mjs delete <task_id>')
+                console.log('$ node todo.mjs complete <task_id>')
+                console.log('$ node todo.mjs uncomplete <task_id>')
+                console.log('$ node todo.mjs list:outstanding asc|desc')
+                console.log('$ node todo.mjs list:completed asc|desc')
+                console.log('$ node todo.mjs tag <task_id> <tag_name_1> <tag_name_2> . . . <tag_name_N>')
+                console.log('$ node todo.mjs filter:<tag_name>')
+            }
+            else {
+                console.log('Daftar Pekerjaan')
+                let filter = param[2].split(':')[1]
+                //console.log(filter)
+                data.forEach((item, index) => {
+                    if (data[index].tag.includes(filter)) {
+                        console.log(`${index + 1}. ${item.complete ? '[x]' : '[ ]'} ${item.title}`)
+                    }
+                })
+            };
+    
+            break;
+    
+    }
