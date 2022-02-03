@@ -16,6 +16,19 @@
    },
    {
       "title": "makan",
+      "complete": true,
+      "tag": []
+   },
+   {
+      "title": "belajar string",
+      "complete": false,
+      "tag": [
+         "belajar",
+         "terus"
+      ]
+   },
+   {
+      "title": "belajar coding",
       "complete": false,
       "tag": []
    }
