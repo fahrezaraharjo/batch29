@@ -91,33 +91,32 @@ switch (param[2]) {
         }
         break;
 
-    case 'tag':
-        let tag = param.slice(4, param.length)
-        //console.log(tag)
-        tag.forEach((item, index) => {
-            data[id].tag.push(tag[index])
-        });
-        //console.log(todo[taskId])
-        //todo[taskId].tag.push(tag)
-        console.log(`'${tag}' telah ditambahkan ke daftar '${data[id].title}'`)
+    // case 'tag':
+    //     let tags = param.slice(4, param.length)
+    //     // console.log(tags)
+    //     tags.forEach((item, index) => {
+    //         data[id].tag.push(tags[index])
+    //     });
+    //     // console.log(data[id])
+    //     // data[id].tag.push(tags)
+    //     console.log(`'${tags}' telah ditambahkan ke daftar '${data[id].title}'`)
 
         
-        fs.writeFileSync('data3.json', JSON.stringify(data, null, 3), 'utf-8')
-
-        break;
+    //     fs.writeFileSync('data3.json', JSON.stringify(data, null, 3), 'utf-8')
+    //     break;
 
     default:
 
-    // console.log(">>> JS data <<<")
-    // console.log("$ node data.js <command>")
-    // console.log("$ node todo.js list")
-    // console.log("$ node todo.js task <task_id>")
-    // console.log("$ node todo.js add <task_content>")
-    // console.log("$ node todo.js delete <task_id>")
-    // console.log("$ node todo.js complete <task_id>")
-    // console.log("$ node todo.js uncomplete<task_id>")
-    // console.log("$ node todo.js list:outstanding asc|dsc")
-    // console.log("$ node todo.js list:complited asc|dsc")
-    // console.log("$ node todo.js tag <task_id> <tag_name_1> <tag_name_2>...<tag_name_N>")
-    // console.log("$ node todo.js filter:<tag_name>")
+    console.log(">>> JS data <<<")
+    console.log("$ node data.js <command>")
+    console.log("$ node todo.js list")
+    console.log("$ node todo.js task <task_id>")
+    console.log("$ node todo.js add <task_content>")
+    console.log("$ node todo.js delete <task_id>")
+    console.log("$ node todo.js complete <task_id>")
+    console.log("$ node todo.js uncomplete<task_id>")
+    console.log("$ node todo.js list:outstanding asc|dsc")
+    console.log("$ node todo.js list:complited asc|dsc")
+    console.log("$ node todo.js tag <task_id> <tag_name_1> <tag_name_2>...<tag_name_N>")
+    console.log("$ node todo.js filter:<tag_name>")
 }
