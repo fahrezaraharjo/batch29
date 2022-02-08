@@ -13,7 +13,7 @@ create table mahasiswa(
     FOREIGN KEY(jurusan) REFERENCES jurusan(kodejurusan)
     );
 
-insert into mahasiswa(nim, name, alamat, jurusan)values("001", "eza", "cijerah", "kodejurusan");
+insert into mahasiswa(nim, name, alamat, jurusan)values("001", "eza", "cijerah", "j1");
  
 create table dosen(
     kodedosen varchar primary key not null,
