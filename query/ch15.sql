@@ -82,6 +82,22 @@ INNER JOIN jurusan ON jurusan.kodejurusan=mahasiswa.jurusan;
 
 
 -- 2. Menampilkan mahasiswa dengan umur dibawah 20 tahun DONE
+
+ALTER TABLE mahasiswa
+add COLUMN tanggal_lahir DATE
+;
+UPDATE mahasiswa
+SET tanggal_lahir = '1995-09-24'
+WHERE nim = '001'
+;
+UPDATE mahasiswa
+SET tanggal_lahir = '1997-11-13'
+WHERE nim = '002'
+;
+UPDATE mahasiswa
+SET tanggal_lahir = '2003-04-02'
+WHERE nim = '003'
+
 SELECT mahasiswa.name,
     CASE
         WHEN (
@@ -140,10 +156,10 @@ SELECT mahasiswa.nim, mahasiswa.name, matakuliah.nama_MK
 count (DISTINCT kontrak.nim)
 FROM kontrak
     JOIN dosen ON dosen.nip = kontrak.nip
-    GROUP BY kontrak.nip
+    GROUP BY kontrak.nip;
 
     -- 7. Mengurutkan mahasiswa berdasarkan umurnya DONE
-SELECT mahasiswa.nama,
+SELECT mahasiswa.name,
     CASE
         WHEN (
             strftime('%M', 'now') > strftime('%M', tanggal_lahir)
@@ -172,15 +188,15 @@ FROM mahasiswa
 ORDER BY tanggal_lahir ASC;
 
 -- 8. Menampilkan kontrak mata kuliah dengan nilai D dan E, serta tampilkan data mahasiswa jurusan dan dosen secara lengkap
-SELECT mahasiswa.nama AS Nama,
+SELECT mahasiswa.name AS Nama,
     jurusan.namaJurusan AS Jurusan,
-    matakuliah.nama AS MataKuliah,
+    matakuliah.nama_MK AS MataKuliah,
     dosen.nama AS Dosen,
     kontrak.nilai AS Nilai
 FROM kontrak
     JOIN mahasiswa ON kontrak.nim = mahasiswa.nim
     JOIN jurusan ON mahasiswa.jurusan = jurusan.kodeJurusan
-    JOIN matakuliah ON kontrak.kodeMataKuliah = matakuliah.kodeMataKuliah
+    JOIN matakuliah ON kontrak.kode_MK = matakuliah.kode_MK
     JOIN dosen ON kontrak.nip = dosen.nip
 WHERE nilai = 'D'
     OR nilai = 'E';
